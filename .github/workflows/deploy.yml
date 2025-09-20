@@ -4,31 +4,31 @@ on:
   workflow_dispatch:
 
 jobs:
- deploy:
-     runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-     steps:
-       #1. Descargar el codigo repo
-       - name: Checkout repo
-         uses: actions/checkout@v3
+    steps:
+      # 1. Descargar el código
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-       #2. Construir el proyecto con Maven
-       - name: Build app
-         run: mvn clean package -DskipTests
+      # 2. Build con Maven
+      - name: Build app
+        run: mvn clean package -DskipTests
 
-       #3. Pruebas de aceptacion (simuladas por ahora)
-       - name: Acceptance tests
-         run: echo "Acceptance tests ejecutadas con exito"
+      # 3. Acceptance tests (simulado)
+      - name: Acceptance tests
+        run: echo "✅ Acceptance tests ejecutadas con éxito"
 
-       #4. Despliegue en ambiente de pruebas (simulacion)
-       - name: Deploy to staging
-         run: echo "Desplegando aplicacion en ambiente de pruebas"
+      # 4. Deploy en ambiente de pruebas (simulado)
+      - name: Deploy to staging
+        run: echo "🚀 Desplegando aplicación en ambiente de pruebas..."
 
-       #5. Estrategia de despliegue Canary / Blue-Green
-       - name: Canary/ Blue-Green release
-         run: echo "Activando estrategia Canary / Blue-Green..."
+      # 5. Canary / Blue-Green (simulado)
+      - name: Canary / Blue-Green release
+        run: echo "🔄 Activando estrategia Canary / Blue-Green..."
 
-       #6. Rollback (solo si falla algo antes)
-       - name: Rollback simulation
-         if: failure()
-         run: echo "Rollback ejecutado:se revirtio a una version mas estable "
+      # 6. Rollback (solo si falla algo antes)
+      - name: Rollback simulation
+        if: failure()
+        run: echo "⚠️ Rollback ejecutado se revirtió a la versión estable"
