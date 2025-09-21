@@ -29,10 +29,10 @@ jobs:
         run: echo " Activando estrategia Canary / Blue-Green..."
 
       # 6. Simulacion de error en despliegue
-      - name: Simulate failure
-        run: exit 1
+      #- name: Simulate failure
+       # run: exit 1
 
       # 7. Rollback (solo si falla algo antes)
-      - name: Rollback simulation
-        if: failure()
-        run: echo "⚠️ Rollback ejecutado se revirtió a la versión estable"
+      #- name: Rollback simulation
+      #  if: failure()
+      #  run: echo "⚠️ Rollback ejecutado se revirtió a la versión estable"
