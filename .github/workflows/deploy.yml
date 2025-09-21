@@ -18,19 +18,20 @@ jobs:
 
       # 3. Acceptance tests (simulado)
       - name: Acceptance tests
-        run: echo "✅ Acceptance tests ejecutadas con éxito"
+        run: echo " Acceptance tests ejecutadas con éxito"
 
       # 4. Deploy en ambiente de pruebas (simulado)
       - name: Deploy to staging
-        run: echo "🚀 Desplegando aplicación en ambiente de pruebas..."
+        run: echo " Desplegando aplicación en ambiente de pruebas..."
 
       # 5. Canary / Blue-Green (simulado)
       - name: Canary / Blue-Green release
-        run: echo "🔄 Activando estrategia Canary / Blue-Green..."
+        run: echo " Activando estrategia Canary / Blue-Green..."
 
       # 6. Simulacion de error en despliegue
       - name: Simulate failure
         run: exit 1
+
       # 7. Rollback (solo si falla algo antes)
       - name: Rollback simulation
         if: failure()
