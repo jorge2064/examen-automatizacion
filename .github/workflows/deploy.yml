@@ -1,0 +1,38 @@
+name: Deployment Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Descargar el código
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # 2. Build con Maven
+      - name: Build app
+        run: mvn clean package -DskipTests
+
+      # 3. Acceptance tests (simulado)
+      - name: Acceptance tests
+        run: echo " Acceptance tests ejecutadas con éxito"
+
+      # 4. Deploy en ambiente de pruebas (simulado)
+      - name: Deploy to staging
+        run: echo " Desplegando aplicación en ambiente de pruebas..."
+
+      # 5. Canary / Blue-Green (simulado)
+      - name: Canary / Blue-Green release
+        run: echo " Activando estrategia Canary / Blue-Green..."
+
+      # 6. Simulacion de error en despliegue
+      - name: Simulate failure
+        run: exit 1
+
+      # 7. Rollback (solo si falla algo antes)
+      - name: Rollback simulation
+        if: failure()
+        run: echo "⚠️ Rollback ejecutado se revirtió a la versión estable"
